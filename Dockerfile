@@ -1,13 +1,13 @@
-FROM jenkins/jenkins:latest
+FROM jenkins/jenkins:lts
 
-LABEL maintainer "Gary A. Stafford <garystafford@rochester.rr.com>"
-ENV REFRESHED_AT 2018-04-19
+LABEL maintainer "Dharama Rao <bala@consultant.com>"
+ENV REFRESHED_AT 2019-06-05
 
 # set variables - *** CHANGE ME ***
-ARG docker_compose_version="1.21.0"
-ARG packer_version="1.2.2"
-ARG terraform_version="0.11.7"
-ARG timezone="America/New_York"
+ARG docker_compose_version="1.25.0"
+ARG packer_version="1.4.1"
+ARG terraform_version="0.12.1"
+ARG timezone="America/Los_Angeles"
 
 ENV DOCKER_COMPOSE_VERSION $docker_compose_version
 ENV PACKER_VERSION $packer_version

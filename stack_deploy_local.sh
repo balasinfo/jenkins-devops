@@ -6,9 +6,9 @@
 set -e
 
 # variables
-IMAGE_TAG="2018.04.19"
-GIT_EMAIL="jenkins@jenkins.com"
-GIT_USER="jenkins"
+IMAGE_TAG="2019.06.05"
+GIT_EMAIL="darmarao@gmail.com"
+GIT_USER="dharamaraob"
 
 # Make local bind-mounted directories
 mkdir -p ~/jenkins_home/.ssh/ || echo "Directory already exists..."
@@ -27,7 +27,7 @@ echo "Letting services start-up (sleep for 60 seconds)..."
 sleep 60
 
 # Configure Jenkins container
-JENKINS_CONTAINER=$(docker ps | grep jenkops | awk '{print $1}')
+JENKINS_CONTAINER=$(docker ps | grep localjenkins | awk '{print $1}')
 docker exec -it ${JENKINS_CONTAINER} \
   bash -c "mkdir /var/jenkins_home/backup/" || echo "Directory already exists..."
 docker exec -it ${JENKINS_CONTAINER} \
@@ -39,7 +39,7 @@ docker exec -it -u root ${JENKINS_CONTAINER} \
 # bash -c "git clone git@github.com:garystafford/jenkins-config.git scm-sync-configuration/checkoutConfiguration" \
 # || echo 'An error occurred?!'
 
-docker logs $(docker ps | grep jenkops | awk '{print $1}')
+docker logs $(docker ps | grep localjenkins | awk '{print $1}')
 
 echo "Script completed..."
 

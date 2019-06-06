@@ -4,7 +4,9 @@ version: '3.2'
 
 services:
   jenkops:
-    image: garystafford/jenkins-devops:2018.04.19
+    image: dharamaraob/jenkins:2019.06.05
+    container_name: localjenkins
+    restart: always
     hostname: jenkins
     ports:
     - "8083:8080/tcp"
