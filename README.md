@@ -10,14 +10,14 @@ The `Jenkins DevOps Toolkit` image is based on the latest [`jenkins/jenkins:late
 
 ## Installed Tools
 
-Based on latest packages as of 2018.04.19:
+Based on latest packages as of 2019.06.05:
 
 - [AWS CLI](https://aws.amazon.com/cli/) v1.15.4
-- [Docker CE](https://docker.com/) v18.03.0-ce
-- [Docker Compose](https://docs.docker.com/compose/) v1.21.0
+- [Docker CE](https://docker.com/) v18.09.6-ce
+- [Docker Compose](https://docs.docker.com/compose/) v1.25.0
 - [Git](https://git-scm.com/) v2.11.0
-- [HashiCorp Packer](https://www.packer.io/) v1.2.2
-- [HashiCorp Terraform](https://www.terraform.io/) v0.11.7
+- [HashiCorp Packer](https://www.packer.io/) v1.4.1
+- [HashiCorp Terraform](https://www.terraform.io/) v0.12.1
 - [Jenkins](https://jenkins.io/) v2.116
 - [jq](https://stedolan.github.io/jq/) v1.5.1
 - [OpenNTPD](http://www.openntpd.org/) (time sync)
@@ -57,7 +57,7 @@ Terraform v0.11.7
 
 The Jenkins DevOps Toolkit Docker container uses two bind-mounted directories on the host. The first, the Jenkins' home directory, contains all required configuration. The second directory is used for backups, created using the Jenkins Backup plugin. Additionally, Jenkins can back up its configuration, using the SCM Sync plugin, to GitHub. Both these backup methods require additional configuration.
 
-![Jenkins DevOps Docker Image Architecture](https://github.com/garystafford/jenkins-devops/blob/master/pics/architecture.png)
+![Jenkins DevOps Docker Image Architecture](https://github.com/balasinfo/jenkins-devops/blob/master/pics/architecture.png)
 
 ## Quick Start
 
@@ -85,17 +85,17 @@ INFO: Successfully installed 2 plugins.
 
 ## Optional: Create Docker Image
 
-The latest `garystafford/jenkins-devops` image is available on [Docker Hub](https://hub.docker.com/r/garystafford/jenkins-devops/).
+The latest `garystafford/jenkins-devops` image is available on [Docker Hub](https://hub.docker.com/r/dharamaraob/jenkins-devops/).
 
 Optionally, to create a new image from the Dockerfile
 
 ```bash
-docker build -t garystafford/jenkins-devops:2018.04.19 .
+docker build -t dharamaraob/jenkins-devops:2018.04.19 .
 ```
 
 ## Run the Container
 
-Create a new container from `garystafford/jenkins-devops:2018.04.19` image
+Create a new container from `dharamaraob/jenkins-devops:2018.04.19` image
 
 ```bash
 sh ./stack_deploy_local.sh
@@ -104,7 +104,7 @@ sh ./stack_deploy_local.sh
 Check logs
 
 ```bash
-docker logs $(docker ps | grep jenkins-devops | awk '{print $1}')
+docker logs $(docker ps | grep localjenkins | awk '{print $1}')
 ```
 
 This script also creates local directories `~/jenkins_home/` and `~/jenkins_backup/`.<br>
@@ -171,13 +171,13 @@ To modify, build, and test locally, replacing my Docker Hub repo name switch you
 
 ```bash
 # build
-docker build --no-cache -t garystafford/jenkins-devops:2018.04.19 .
+docker build --no-cache -t dharamaraob/jenkins-devops:2018.04.19 .
 
 # run temp copy only
-docker run -d --name jenkins-temp -p 8083:8080/tcp -p 50000:50000/tcp garystafford/jenkins-devops:2018.04.19
+docker run -d --name jenkins-temp -p 8083:8080/tcp -p 50000:50000/tcp dharamaraob/jenkins-devops:2018.04.19
 
 # push
-docker push garystafford/jenkins-devops:2018.04.19
+docker push dharamaraob/jenkins-devops:2018.04.19
 
 # clean up container and local bind-mounted directory
 rm -rf ~/jenkins_home
