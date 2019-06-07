@@ -85,10 +85,10 @@ RUN set +x \
 RUN set +x \
   && apt-get clean
 
-# set timezone to America/New_York
+# set timezone to America/Los_Angeles
 RUN set +x \
   && cp /usr/share/zoneinfo/${TIMEZONE} /etc/localtime \
-  && echo "America/New_York" >  /etc/timezone \
+  && echo "America/Los_Angeles" >  /etc/timezone \
   && date
 
 # drop back to the regular jenkins user - good practice
