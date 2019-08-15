@@ -90,12 +90,12 @@ The latest `garystafford/jenkins-devops` image is available on [Docker Hub](http
 Optionally, to create a new image from the Dockerfile
 
 ```bash
-docker build -t dharamaraob/jenkins-devops:2018.04.19 .
+docker build -t dharamaraob/jenkins:2019.06.05 .
 ```
 
 ## Run the Container
 
-Create a new container from `dharamaraob/jenkins-devops:2018.04.19` image
+Create a new container from `dharamaraob/jenkins:2019.06.05` image
 
 ```bash
 sh ./stack_deploy_local.sh
@@ -171,13 +171,13 @@ To modify, build, and test locally, replacing my Docker Hub repo name switch you
 
 ```bash
 # build
-docker build --no-cache -t dharamaraob/jenkins-devops:2018.04.19 .
+docker build --no-cache -t dharamaraob/jenkins:2019.06.05 .
 
 # run temp copy only
-docker run -d --name jenkins-temp -p 8083:8080/tcp -p 50000:50000/tcp dharamaraob/jenkins-devops:2018.04.19
+docker run -d --name jenkins-temp -p 8083:8080/tcp -p 50000:50000/tcp dharamaraob/jenkins:2019.06.05
 
 # push
-docker push dharamaraob/jenkins-devops:2018.04.19
+docker push dharamaraob/jenkins:2019.06.05
 
 # clean up container and local bind-mounted directory
 rm -rf ~/jenkins_home
