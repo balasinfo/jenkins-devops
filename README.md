@@ -190,3 +190,4 @@ docker rm -f devopstack_jenkins-devops_1
 - [SCM Sync configuration plugin](https://wiki.jenkins-ci.org/display/JENKINS/SCM+Sync+configuration+plugin)
 - [thinBackup](https://wiki.jenkins-ci.org/display/JENKINS/thinBackup)
 - [Backup Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Backup+Plugin)
+- [Audit Trail Plugin](https://wiki.jenkins.io/display/JENKINS/Audit+Trail+Plugin)
