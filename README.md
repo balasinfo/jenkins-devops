@@ -191,3 +191,4 @@ docker rm -f devopstack_jenkins-devops_1
 - [thinBackup](https://wiki.jenkins-ci.org/display/JENKINS/thinBackup)
 - [Backup Plugin](https://wiki.jenkins-ci.org/display/JENKINS/Backup+Plugin)
 - [Audit Trail Plugin](https://wiki.jenkins.io/display/JENKINS/Audit+Trail+Plugin)
+- [Parameterized Trigger](https://wiki.jenkins.io/display/JENKINS/Parameterized+Trigger+Plugin)
