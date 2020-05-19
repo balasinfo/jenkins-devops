@@ -8,6 +8,7 @@ ARG docker_compose_version="1.25.0"
 ARG packer_version="1.4.1"
 ARG terraform_version="0.12.1"
 ARG timezone="America/Los_Angeles"
+ARG MAVEN_VERSION=3.6.3
 
 ENV DOCKER_COMPOSE_VERSION $docker_compose_version
 ENV PACKER_VERSION $packer_version
@@ -38,6 +39,23 @@ RUN set +x \
   && apt-get -y upgrade \
   && apt-get install -y docker-ce \
   && systemctl enable docker
+
+# Install Maven
+ARG MAVEN_VERSION=3.6.3
+ARG MAVEN_BINARY_URL=https://www.apache.org/dist/maven/maven-3/${MAVEN_VERSION}/binaries/apache-maven-${MAVEN_VERSION}-bin.tar.gz
+ARG MAVEN_BINARY_FILE=apache-maven-${MAVEN_VERSION}-bin.tar.gz
+ARG MAVEN_HOME=${RUNNER_USER_HOME}/maven
+ENV PATH ${MAVEN_HOME}/bin:${PATH}
+RUN cd / && \
+    curl -fsSLO --compressed "${MAVEN_BINARY_URL}" && \
+    curl -fsSL  --compressed "${MAVEN_BINARY_URL}.sha512" | \
+      xargs -I {} echo "{} *${MAVEN_BINARY_FILE}" | \
+      sha512sum --check --strict && \
+    mkdir -p "${MAVEN_HOME}" && \
+    tar -xzf "${MAVEN_BINARY_FILE}" -C "${MAVEN_HOME}" --strip-components 1 && \
+    rm "${MAVEN_BINARY_FILE}" && \
+    mvn -v
+
 
 # set permissions for jenkins user
 RUN set +x \
@@ -80,7 +98,7 @@ RUN set +x \
   cat /etc/*release; python3 --version; \
   docker version; docker-compose version; \
   git --version; jq --version; pip3 --version; aws --version; \
-  packer version; terraform version; echo '';
+  packer version; mvn --version; terraform version; echo '';
 
 RUN set +x \
   && apt-get clean
