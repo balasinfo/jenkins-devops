@@ -174,10 +174,10 @@ To modify, build, and test locally, replacing my Docker Hub repo name switch you
 docker build --no-cache -t dharamaraob/jenkins:2019.06.05 .
 
 # run locallly
-docker run -d -it --restart always --name jenkins -p 8083:8080/tcp -p 50000:50000/tcp dharamaraob/jenkins:2019.06.05
+docker run -d -it --restart always --name jenkins -v /Users/draobala/Bala/jenkins_home:/var/jenkins_home  -p 8083:8080/tcp -p 50000:50000/tcp dharamaraob/jenkins:2019.06.05
 
 # run as root user with name jenkins-temp
-docker run -u root -d -it --restart always --name jenkins-temp -p 8083:8080/tcp -p 50000:50000/tcp dharamaraob/jenkins:2019.06.05
+docker run -u root -d -it --restart always --name jenkins-temp -v /Users/draobala/Bala/jenkins_home:/var/jenkins_home  -p 8083:8080/tcp -p 50000:50000/tcp dharamaraob/jenkins:2019.06.05
 
 
 # push
