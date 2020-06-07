@@ -100,6 +100,9 @@ RUN set +x \
   git --version; jq --version; pip3 --version; aws --version; \
   packer version; mvn --version; terraform version; echo '';
 
+# For Jenkins User, not to prompt for the sudo user password, when switching as root user.
+RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
+
 RUN set +x \
   && apt-get clean
 
