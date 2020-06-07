@@ -199,3 +199,8 @@ docker rm -f devopstack_jenkins-devops_1
 - [pipeline-utility-steps] (https://plugins.jenkins.io/pipeline-utility-steps/ )# To do: Need to add it by default
 - [Slack Notification Plugin] ( https://plugins.jenkins.io/slack ) # To do: Need to add it by default
 
+Issues:
+Unable to run the docker container?
+Sol: sudo chmod 666 /var/run/docker.sock run it in docker container. Will add to the container. 
+Ref: https://www.digitalocean.com/community/questions/how-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket
+
