@@ -71,7 +71,8 @@ RUN set +x \
 # install AWS CLI
 RUN set +x \
   && pip3 install awscli --upgrade \
-  && exec bash
+  && exec bash \
+  && pip3 install ecs-deploy
 
 # install HasiCorp Packer
 RUN set +x \
