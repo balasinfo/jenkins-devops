@@ -90,9 +90,9 @@ The latest `garystafford/jenkins-devops` image is available on [Docker Hub](http
 Optionally, to create a new image from the Dockerfile
 
 ```bash
-docker build -t dharamaraob/jenkins:$(date '+%Y-%m-%d') . -f Dockerfile --rm  -m 4g 
+docker build -t dharamaraob/jenkins:$(date '+%Y.%m.%d') . -f Dockerfile --rm  -m 4g 
 # don't build from cache ? 
-docker build -t dharamaraob/jenkins:$(date '+%Y-%m-%d') . -f Dockerfile --rm  -m 4g --no-cache  
+docker build -t dharamaraob/jenkins:$(date '+%Y.%m.%d') . -f Dockerfile --rm  -m 4g --no-cache  
 ```
 
 ## Run the Container
