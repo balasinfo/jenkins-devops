@@ -24,7 +24,7 @@ Based on latest packages as of 2019.06.05:
 - [pip3](https://pip.pypa.io/en/stable/#) v9.0.1
 - [Python3](https://www.python.org/) v3.5.3
 - [tzdata](https://www.iana.org/time-zones) (time sync)
-
+- ecs deploy
 Built Output
 
 ```text
