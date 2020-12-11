@@ -23,7 +23,7 @@ RUN set +x \
   && env \
   && apt-get update \
   && apt-get -y upgrade \
-  && apt-get -y install openrc openntpd tzdata python3 python3-pip jq git
+  && apt-get -y install openrc openntpd tzdata python3 python3-pip jq git mysql-client
 
 # update and install Docker CE and associated packages
 RUN set +x \
