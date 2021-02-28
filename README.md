@@ -207,3 +207,5 @@ Sol: sudo chmod 666 /var/run/docker.sock  <br/>
 run it in docker container. Will add to the container. 
 Ref: https://www.digitalocean.com/community/questions/how-to-fix-docker-got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket
 
+Good to have tools in Jenkins:
+Gcloud,bq, kubectl,docker,npm/node,pip/python,ruby,vim,emacs,bash etc ..
